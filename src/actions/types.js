@@ -1,0 +1,1 @@
+export const SEARCH_RESULTS_RETRIEVED = 'search_result_retrieve';

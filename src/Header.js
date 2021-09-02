@@ -1,37 +1,29 @@
 import React,{useState} from 'react';
-
-
+import * as actions from './actions'
+import { useDispatch} from 'react-redux';
+import {BsSearch}from 'react-icons/bs'
 
 function Header() {
     const [movie,setMovie] = useState('');
-    const apiKey = process.env.REACT_APP_API_KEY
+    const dispatch = useDispatch();
+    const apiKey = process.env.REACT_APP_API_KEY;
 
-    const fetchMoveDb = async () => {
-        let result ;
-        try{
-            result = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`)
-        }catch(error){
-            console.log(error);
-        }
-        console.log(result);
-    }
     const onHandleSubmit=(e)=>{
-        fetchMoveDb();
+        // uses redux to update the redux global store 
+        dispatch(actions.retrieveSearchResults(apiKey,movie))
         e.preventDefault();
     }
+
     return (
-        
         <div>
         <header className="App-header">
             <form onSubmit={onHandleSubmit}>
+            <button type="submit"><BsSearch/></button>
             <label>
-                Search
                 <input type="text" name="search" onChange={e=>setMovie(e.target.value)}/>
             </label>
-            <button type="submit">Submit</button>
             </form>
         </header>
-            
         </div>
     )
 }
