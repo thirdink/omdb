@@ -5,7 +5,7 @@ import { useSelector} from 'react-redux';
 function Result() {
 
     const selectedMovie=useSelector((state)=>state.searchByIDReducer.searchByID);
-    console.log(selectedMovie.length);
+
     const ratingsListings = selectedMovie.length===undefined?null:selectedMovie.Ratings.map((item,i)=>{
         return (
                 <div className="imdb" key={i}>
@@ -23,7 +23,7 @@ function Result() {
         <div className="movieBox">
             <div className="MoviePoster" key="01">
                 <div className="posterContainer">
-                    <img src={selectedMovie.Poster} alt={selectedMovie.Title+' image poster'} className="imagePoster"/>
+                    <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="imagePoster"/>
                     <div className="titleContainer">
                         <div className="watchList"></div>
                         <div className="title">{selectedMovie.Title}</div>
