@@ -10,7 +10,13 @@ function Header() {
 
     const onHandleSubmit=(e)=>{
         // uses redux to update the redux global store 
-        dispatch(actions.retrieveSearchResults(apiKey,movie))
+        console.log(movie);
+        if(movie===""){
+            dispatch(actions.clear_search_by_id());
+            dispatch(actions.clear_retrieve_search_results());
+        }else{
+            dispatch(actions.retrieve_search_results(apiKey,movie));
+        }
         e.preventDefault();
     }
 

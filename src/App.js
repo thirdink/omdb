@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Header from './Header';
 import './App.css';
 import ResultsList from './ResultsList';
@@ -17,7 +16,7 @@ function App() {
         <ResultsList/>
       </div>
         <div className="right">
-        <Result />
+          <Result />
         </div>
       </div>
     </div>
