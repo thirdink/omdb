@@ -1,11 +1,14 @@
 import React,{useState} from 'react';
 import * as actions from './actions'
 import { useDispatch} from 'react-redux';
-import {BsSearch}from 'react-icons/bs'
+import {BsSearch}from 'react-icons/bs';
+import MultiRangeSlider from './utils/multiRangeSlider';
 
 function Header() {
     const [movie,setMovie] = useState('');
     const [typeSelect,setTypeSelect] = useState('');
+    const [minYear,setMinYear] = useState('');
+    const [maxYear,setMaxYear] = useState('');
     const dispatch = useDispatch();
     const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -16,7 +19,8 @@ function Header() {
             dispatch(actions.clear_search_by_id());
             dispatch(actions.clear_retrieve_search_results());
         }else{
-            dispatch(actions.retrieve_search_results(apiKey,movie));
+
+            dispatch(actions.retrieve_search_results(apiKey,movie,minYear,maxYear,typeSelect));
         }
         e.preventDefault();
     }
@@ -32,16 +36,23 @@ function Header() {
                             </div>
                     </div>
                     <div className="rangeFilter" >
-                        
+                    <MultiRangeSlider
+                        min={1950}
+                        max={2021}
+                        onChange={({ min, max }) => {
+                            setMinYear(min);
+                            setMaxYear(max);
+                        }}
+                    />
                     </div>
                     <div className="radioButton">
                         <div className="radio">
                             <label className="inputLabel">
                                 <input
                                 type="radio"
-                                value="any"
+                                value=""
                                 className="inputRadio"
-                                checked={typeSelect === "any"}
+                                checked={typeSelect === ""}
                                 onChange={e=>setTypeSelect(e.target.value)}
                                 />
                                 Any

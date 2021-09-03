@@ -2,4 +2,12 @@
 GET https://www.omdbapi.com/?i=tt3896198&apikey=311382d2
 ###
 
-GET https://www.omdbapi.com/?apikey=311382d2&s=superman&y=1989-2020
+GET https://www.omdbapi.com/?apikey=311382d2&s=superman&y=2010-2021&type=series
+
+###
+GET https://www.omdbapi.com/?apikey=311382d2&s=superman&y=2010-2021&type=series
+
+###
+GET https://www.omdbapi.com/?apikey=311382d2&s=shang+chi&y=2010-2021&type=movie
+###
+GET https://www.omdbapi.com/?apikey=311382d2&s=batman&y=1950-2021&type=series
