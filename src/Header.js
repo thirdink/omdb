@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import * as actions from './actions'
 import { useDispatch} from 'react-redux';
 import {BsSearch}from 'react-icons/bs';
+import { IconContext } from "react-icons";
 import MultiRangeSlider from './utils/multiRangeSlider';
 
 function Header() {
@@ -30,11 +31,17 @@ function Header() {
         <header className="App-header">
             <form onSubmit={onHandleSubmit} className="form">
                     <div className="search">
-                        <button type="submit" className="searchButton"><BsSearch/></button>
-                            <div className="searchInput">
-                                <input type="text" name="search" onChange={e=>setMovie(e.target.value)}/>
+                        <button type="submit" className="searchButton">
+                        <IconContext.Provider value={{ size: "2em" }}>
+                            <div>
+                                <BsSearch />
                             </div>
-                    </div>
+                        </IconContext.Provider>
+                            </button>
+                            <div className="searchInput">
+                                <input type="text" name="search" className="inputTypeText" onChange={e=>setMovie(e.target.value)}/>
+                            </div>
+                    </div> 
                     <div className="rangeFilter" >
                     <MultiRangeSlider
                         min={1950}

@@ -22,29 +22,50 @@ body {
 .App-header {
   background-color: #777777;
   min-height: 10vh;
-  flex-grow: 1;
+  /* flex-grow: 1;
   display: flex;
   align-self: auto;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; */
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
 }
 .form{
   display: flex;
+  align-self: auto;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .search{
 flex:0;
 display: flex;
 flex-direction: row;
 }
+
 .searchButton{
-  flex:0
+  flex:0;
+  margin:1rem;
+
+  padding:.2rem;
+  color: #e9e9e9;
+  background-color: #777777;
+  border-color: transparent;
 }
+
 .searchInput{
   flex:1;
+}
+
+
+.inputTypeText{
+  padding: 12px 10px;
+  margin: 12px;
+  width: 23em;
+  background-color: #e9e9e9;
+  border-color: transparent;
 }
 .rangeFilter{
   flex:1
