@@ -44,7 +44,7 @@ function ResultsList() {
     })
 
     return (
-        <div class="sideList">
+        <div className="sideList">
             {listOfMovies}
         </div>
     )

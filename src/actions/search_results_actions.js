@@ -8,7 +8,7 @@ export const retrieve_search_results = (apiKey,movie,minYear,maxYear,typeSelect)
 
         let response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${spaceRemovedMovie}&y=${minYear}-${maxYear}&type=${typeSelect}`)
         let result = await response.json();
-        console.log(result.Search)
+
         return dispatch({
             type:SEARCH_RESULTS_RETRIEVED,
             payload: result.Search
