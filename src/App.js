@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from './Header';
+import Header from './components/Header';
 import './App.css';
-import ResultsList from './ResultsList';
-import Result from './Result';
+import ResultsList from './components/ResultsList';
+import Result from './components/Result';
 
 
 function App() {

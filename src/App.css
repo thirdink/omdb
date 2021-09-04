@@ -58,14 +58,20 @@ flex-direction: row;
 .searchInput{
   flex:1;
 }
-
-
 .inputTypeText{
   padding: 12px 10px;
   margin: 12px;
   width: 23em;
-  background-color: #e9e9e9;
+  background-color: #777777;
   border-color: transparent;
+  border: none;
+  border-bottom: 2px solid #bcbcbc;
+  color:#e9e9e9;
+}
+
+input[type=text]:focus-visible{
+  border-bottom: 2px solid #bcbcbc;
+  outline: none;
 }
 .rangeFilter{
   flex:1
@@ -92,75 +98,11 @@ flex-direction: row;
   flex:1;
   height: 100vh;
 }
-.movieBox{
-  overflow-y: auto;
-  display:flex;
-  flex-direction: column; 
+
+.contentContainer{
+  margin: .5em;
 }
-.MoviePoster{
-  flex:0;
-  min-height: 10vh;
-}
-.posterContainer{
-  display:flex;
-  flex-direction: row; 
-}
-.imagePoster{
-  flex:0;
-}
-.titleContainer{
-  flex:1;
-  min-height: 10vh;
-  display:flex;
-  flex-direction: column; 
-}
-.watchList{
-flex:0;
-min-height: 10vh;
-}
-.title{
-flex:1;
-min-height: 10vh;
-}
-.categoryContainer{
-flex:2;
-min-height: 10vh;
-display:flex;
-flex-direction: row; 
-}
-.rated{
-flex:0;
-}
-.year{
-  flex:1;
-}
-.genre{
-  flex:2;
-}
-.time{
-  flex:3;
-}
-.actors{
-flex:3;
-min-height: 10vh;
-}
-.plot{
-  flex:1;
-  min-height: 10vh;
-}
-.ratings{
-  flex:2;
-  min-height: 10vh;
-  display:flex;
-  flex-direction: row; 
-}
-.imdb{
-flex:0;
-min-height: 10vh;
-}
-.rt{
-flex:1;
-}
-.mc{
-flex:2;
+.left{
+  padding:.5em;
+  max-width:30vw;
 }

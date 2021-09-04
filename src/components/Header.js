@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
-import * as actions from './actions'
+import * as actions from '../actions';
 import { useDispatch} from 'react-redux';
 import {BsSearch}from 'react-icons/bs';
 import { IconContext } from "react-icons";
-import MultiRangeSlider from './utils/multiRangeSlider';
+import MultiRangeSlider from '../utils/multiRangeSlider';
 
 function Header() {
     const [movie,setMovie] = useState('');

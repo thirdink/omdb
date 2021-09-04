@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector} from 'react-redux';
+import './Result.css';
 
 
 function Result() {
@@ -28,7 +29,6 @@ function Result() {
                         <div className="watchList"></div>
                         <div className="title">{selectedMovie.Title}</div>
                         <div className="categoryContainer">
-                            
                             <div className="rated">{selectedMovie.rated}</div>
                             <div className="year">{selectedMovie.Year}</div>
                             <div className="genre">{selectedMovie.Genre}</div>
