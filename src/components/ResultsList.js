@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector,useDispatch} from 'react-redux';
 import * as actions from '../actions'
 import './ResultsList.css';
-
+import {isEmptyObject} from '../utils/isEmpty'
 function ListItem(props) {
     const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -40,12 +40,15 @@ function ResultsList() {
     )
     
 
-    const listOfMovies = listResults===undefined?null:listResults.length===0?emptyState:listResults.map((movies)=>{
+    const listOfMovies = listResults.Search===undefined?null:listResults.Search.length===0?emptyState:listResults.Search.map((movies)=>{
         return <ListItem key={movies.imdbID} data={movies}/>
     })
+    
+
 
     return (
         <div className="sideList">
+            <p className="results">{!isEmptyObject(listResults)?listResults.totalResults+ ' Results':null} </p>
             {listOfMovies}
         </div>
     )

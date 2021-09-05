@@ -4,6 +4,7 @@ import { useDispatch} from 'react-redux';
 import {BsSearch}from 'react-icons/bs';
 import { IconContext } from "react-icons";
 import MultiRangeSlider from '../utils/multiRangeSlider';
+import './Header.css'
 
 function Header() {
     const [movie,setMovie] = useState('');
@@ -16,6 +17,7 @@ function Header() {
     const onHandleSubmit=(e)=>{
         // uses redux to update the redux global store 
         if(movie===""){
+            // clears redux store when search input is empty
             dispatch(actions.clear_search_by_id());
             dispatch(actions.clear_retrieve_search_results());
         }else{
@@ -29,7 +31,7 @@ function Header() {
         <header className="App-header">
             <form onSubmit={onHandleSubmit} className="form">
                     <div className="search">
-                        <button type="submit" className="searchButton">
+                        <button type="submit" aria-label="search button" className="searchButton">
                         <IconContext.Provider value={{ size: "2em" }}>
                             <div>
                                 <BsSearch />
@@ -37,7 +39,7 @@ function Header() {
                         </IconContext.Provider>
                             </button>
                             <div className="searchInput">
-                                <input type="text" name="search" className="inputTypeText" onChange={e=>setMovie(e.target.value)}/>
+                                <input type="text" name="search" aria-label="search text input" placeholder="search here ..." className="inputTypeText" onChange={e=>setMovie(e.target.value)}/>
                             </div>
                     </div> 
                     <div className="rangeFilter" >
