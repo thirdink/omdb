@@ -34,6 +34,7 @@ function ListItem(props) {
 function ResultsList() {
     // gets the data from the redux global state
     const listResults = useSelector((state)=> state.searchResultsReducer.searchresult)
+    // render empty state
     const emptyState =   (
     <p className="nothing">search for something ...</p>
     )

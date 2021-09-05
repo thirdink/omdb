@@ -1,20 +1,53 @@
-import React from 'react'
-import { useSelector} from 'react-redux';
+import React,{useState} from 'react';
+import { useSelector,useDispatch} from 'react-redux';
+import * as actions from '../actions';
 import './Result.css';
+import { FcBookmark }  from 'react-icons/fc';
+import { FiBookmark } from 'react-icons/fi';
+import { IconContext } from "react-icons";
 
 
 function Result() {
-
+    const dispatch = useDispatch();
     const selectedMovie=useSelector((state)=>state.searchByIDReducer.searchByID);
+    const watchList = useSelector((state)=>state.wishListReducer.wishLists);
+    const [isInWatchList,setIsInWatchList] = useState(false);
+
 
 
     function isEmptyObject(obj) {
         return Object.keys(obj).length === 0;
     }
 
+    const checkIfMovieIsInWatchList=(movie,watchList)=>{
+        // console.log(movie);
+        let booleanForWatchList=false;
+
+        watchList.map((item)=>{
+            if(item.imdbID===movie.imdbID){
+                booleanForWatchList=true;
+                
+            }
+        })
+
+        return booleanForWatchList;
+    }
+
+    const handleWatchList=(movie)=>{   
+        // console.log(checkIfMovieIsInWatchList(movie,watchList)); 
+        if(!checkIfMovieIsInWatchList(movie,watchList)){
+            dispatch(actions.add_to_wishlist(movie));
+            setIsInWatchList(true);
+        }else{
+            console.log(movie);
+            dispatch(actions.delete_from__wishlist(movie));
+            setIsInWatchList(false);
+        }
+
+
+    }
 
     const ratingsListings = selectedMovie.Ratings===undefined?null:selectedMovie.Ratings.map((item,i)=>{
-        console.log(i);
         if(i<2){
             return (
         
@@ -42,13 +75,31 @@ function Result() {
         )
         }
     })
+
+    const wishListComponent=(
+        <button className="wishListIconOuter" onClick={()=>handleWatchList(selectedMovie)}>
+            <IconContext.Provider value={{size:"2em"}}>
+                {checkIfMovieIsInWatchList(selectedMovie,watchList)?<FcBookmark/>:<FiBookmark/>}                
+            </IconContext.Provider>
+            <div className="wishListInner">
+                <p>
+                    WatchList
+                </p>
+            </div>
+        </button>
+    )
+
+        
+
     // only renders when selectedMovie object is not empty
     const selectedRender = isEmptyObject(selectedMovie)===true?null:(<div className="movieBox">
     <div className="MoviePoster" key="01">
         <div className="posterContainer">
             <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="imagePoster"/>
             <div className="titleContainer">
-                <div className="watchList"></div>
+                <div className="watchList">
+                {wishListComponent}
+                </div>
                 <div className="title">{selectedMovie.Title}</div>
                 <div className="categoryContainer">
                     <div className="rated">{selectedMovie.rated}</div>
