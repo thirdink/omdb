@@ -61,23 +61,25 @@
     padding:1vw;
   }
   .yearTitle{
-    font-size:.5em;
+    font-size:.75em;
   }
   .typeTitle{
     align-self: baseline;
-  
+    padding-bottom: 1vh;
   }
   .radioButton{
     flex:2;
     display: flex;
     flex-direction: column;
-    font-size: .7em;
-    min-height: 50px;
+    font-size: .75em;
+    justify-content: center;
+    min-height: 100px;
     padding: 1vw;
   }
   .radioGroup{
     display: flex;
     flex-direction: row;
+    padding-bottom: 3vh;
   }
   input[type='radio']:after {
     width: 10px;
@@ -133,11 +135,16 @@ input[type='radio']:checked:after {
     padding:.5em;
     max-width:30vw;
   }
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 900px) {
     .form{
       flex-direction: column;
     }
     .left{
       max-width: 43vw;
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .inputTypeText{
+      width:30vw;
     }
   }

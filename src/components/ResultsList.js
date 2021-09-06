@@ -1,6 +1,10 @@
 import React from 'react';
 import { useSelector,useDispatch} from 'react-redux';
-import * as actions from '../actions';
+import {
+    searchByID,
+    infinite_scroll,
+    increment_page_count
+} from '../actions';
 import InfiniteScroll from "react-infinite-scroll-component";
 import './ResultsList.css';
 import {isEmptyObject} from '../utils/isEmpty';
@@ -10,22 +14,18 @@ import {isEmptyObject} from '../utils/isEmpty';
 
 function ListItem(props) {
     const apiKey = process.env.REACT_APP_API_KEY;
-
     const dispatch=useDispatch();
 
-
     return (
-        
             <li 
                 className="liSideList" 
-                onClick={()=>{dispatch(actions.searchByID(apiKey,props.data.imdbID))}}
+                onClick={()=>{dispatch(searchByID(apiKey,props.data.imdbID))}}
                 >
                     <img 
                         src={props.data.Poster} 
                         alt={props.data.Title} 
                         className="sideListImg"
                         />
-
                     <div className="sideListTitle">
                         <div className="sideListTitleText">   
                             {props.data.Title}
@@ -49,19 +49,25 @@ function ResultsList() {
     const emptyState =   (
     <p className="nothing">search for a movie or tv series ...</p>
     )
-    const listOfMovies = isEmptyObject(listResults)===true?emptyState:listResults.Search.map((movies,i)=>{
+    // render error state
+    const errorState = (
+        <p className="error">Movie not found !</p>
+    )
+    // if listResults is not empty and doest container error then render the list
+    const listOfMovies = isEmptyObject(listResults)?emptyState:listResults.Response==="False"?errorState:listResults.Search.map((movies,i)=>{
         return <ListItem key={i} data={movies} searchTerms={searchTerms} />
     })
-    
+    // triggered when user scrolls to the end of the list
     const infiniteScroll = () =>{
-        dispatch(actions.infinite_scroll(searchTerms,pageCount));
-        dispatch(actions.increment_page_count(pageCount));
+        dispatch(infinite_scroll(searchTerms,pageCount));
+        dispatch(increment_page_count(pageCount));
     }
+
     return (
         <div className="sideList">
-            <p className="results">{!isEmptyObject(listResults)?listResults.totalResults+ ' Results':null} </p>
+            <p className="results">{!isEmptyObject(listResults)?listResults.Response==="False"?null:listResults.totalResults+ ' Results':null} </p>
             {
-                !isEmptyObject(listResults)?
+                !isEmptyObject(listResults)?listResults.Response==="False"?errorState:
                     <InfiniteScroll
                     dataLength={listResults.Search.length}
                     next={infiniteScroll}

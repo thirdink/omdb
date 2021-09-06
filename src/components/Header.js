@@ -1,5 +1,10 @@
 import React,{useState} from 'react';
-import * as actions from '../actions';
+import {
+    clear_search_by_id,
+    clear_retrieve_search_results,
+    clear_page_count,
+    retrieve_search_results
+} from '../actions';
 import { useDispatch} from 'react-redux';
 import {BsSearch}from 'react-icons/bs';
 import { IconContext } from "react-icons";
@@ -24,11 +29,11 @@ function Header() {
         // uses redux to update the redux global store 
         if(movie===""){
             // clears redux store when search input is empty
-            dispatch(actions.clear_search_by_id());
-            dispatch(actions.clear_retrieve_search_results());
-            dispatch(actions.clear_page_count());
+            dispatch(clear_search_by_id());
+            dispatch(clear_retrieve_search_results());
+            dispatch(clear_page_count());
         }else{
-            dispatch(actions.retrieve_search_results(apiKey,movie,minYear,maxYear,typeSelect,pageCount));
+            dispatch(retrieve_search_results(apiKey,movie,minYear,maxYear,typeSelect,pageCount));
         }
         e.preventDefault();
     }
@@ -48,7 +53,12 @@ function Header() {
                         </IconContext.Provider>
                             </button>
                             <div className="searchInput">
-                                <input type="text" name="search" aria-label="search text input" placeholder="search here ..." className="inputTypeText" onChange={e=>setMovie(e.target.value)}/>
+                                <input type="text" name="search" 
+                                aria-label="search text input" 
+                                placeholder="search here ..." 
+                                className="inputTypeText" 
+                                onChange={e=>setMovie(e.target.value)}
+                                />
                             </div>
                     </div> 
                     <div className="rangeFilter" >
