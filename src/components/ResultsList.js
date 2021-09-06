@@ -51,8 +51,8 @@ function ResultsList() {
     )
     
    
-    const listOfMovies = listResults.Search===undefined?null:listResults.Search.length===0?emptyState:listResults.Search.map((movies)=>{
-        return <ListItem key={movies.imdbID} data={movies} searchTerms={searchTerms} />
+    const listOfMovies = listResults.Search===undefined?null:listResults.Search.length===0?emptyState:listResults.Search.map((movies,i)=>{
+        return <ListItem key={i} data={movies} searchTerms={searchTerms} />
     })
     
     const infiniteScroll = () =>{
@@ -67,15 +67,15 @@ function ResultsList() {
             <p className="results">{!isEmptyObject(listResults)?listResults.totalResults+ ' Results':null} </p>
             {
                 !isEmptyObject(listResults)?
-                <InfiniteScroll
-                dataLength={listResults.Search.length}
-                next={infiniteScroll}
-                hasMore={true}
-                loader={<h4>Loading...</h4>}
-                scrollableTarget="left"
-                >
-                {listOfMovies}
-                </InfiniteScroll>:null
+                    <InfiniteScroll
+                    dataLength={listResults.Search.length}
+                    next={infiniteScroll}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                    scrollableTarget="left"
+                    >
+                        {listOfMovies}
+                    </InfiniteScroll>:null
             }
             
         </div>
