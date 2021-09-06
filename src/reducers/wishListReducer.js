@@ -7,17 +7,18 @@ const initialState = {
 const wishListReducer = (state = initialState,action)=>{
     switch(action.type){
         case ADD_TO_WISHLIST:
+            let addToWishList = [...state.wishLists,action.payload]
             return{
                 ...state,
-                wishLists: [...state.wishLists,action.payload]
+                wishLists: addToWishList
             }
         case DELETE_FROM_WISH_LIST:
-            let wishListArr =  [
+            let wishListArrToDelete =  [
                 ...state.wishLists.filter(wishList=>wishList.imdbID!==action.payload.imdbID)
             ]
             return {
                 ...state,
-                wishLists: wishListArr
+                wishLists: wishListArrToDelete
             }
         default:
             return state;
