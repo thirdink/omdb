@@ -5,11 +5,14 @@
 
 }
 .liSideList{
-    margin: .2em;
     padding: .5em;
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid #b9b9b9;
+}
+.liSideList:hover{
+    background-color: #eaeaea;
 }
 .sideListImg{
     flex:0;
@@ -29,4 +32,7 @@
 .sideListTitleYear{
     color:#a0a0a0;
     align-content: flex-start;
+}
+.results{
+    font-size: .8em;
 }

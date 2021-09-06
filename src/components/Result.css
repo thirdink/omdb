@@ -28,8 +28,11 @@
 .watchList{
     flex:0;
     padding: 1vh 2vh;
+    padding-left: 17vw;
     height: auto;
     width: 163px;
+    display: flex;
+    flex-direction: row-reverse;
 }
 .title{
     flex:1;
@@ -103,6 +106,23 @@
     border: 1px solid #5a5a5a;
     border-radius: 5px;
 }
+.wishListIcon{
+    align-self: center;
+}
 .wishListInner{
     flex: 1;
+}
+@media only screen and (max-width: 1200px) {
+    .posterContainer{
+        flex-direction: column;
+    }
+    .right{
+        height: 80vh;
+    }
+    .imagePoster{
+        height: 20vh;
+    }
+    .watchList{
+        padding-left: 0vw;
+    }
 }
