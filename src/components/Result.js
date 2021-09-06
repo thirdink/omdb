@@ -36,7 +36,7 @@ function Result() {
 
     // only render if there is ratings in a movie
     const ratingsListings = selectedMovie.Ratings===undefined?null:selectedMovie.Ratings.map((item,i)=>{
-        // added this if statement just for the css border-right that is different between these components
+        // added this if statement just for the css border-right that is different between these div
         if(i<2){
             return (
                 <div className="individualRating"  key={i}>
