@@ -40,6 +40,7 @@
     font-size: 2em;
     font-weight:600;
     color: #000000;
+    padding:1vw;
 }
 .categoryContainer{
     flex:2;
@@ -50,21 +51,26 @@
 .rated{
     flex:0;
     align-self: center;
+    padding: 1vw;
 }
 .year{
     flex:1;
     align-self: center;
+    padding: 1vw;
 }
 .genre{
     flex:2;
     align-self: center;
+    padding: 1vw;
 }
 .time{
     flex:3;
     align-self: center;
+    padding: 1vw;
 }
 .actors{
     flex:3;
+    padding:1vw;
 }
 .plot{
     flex:1;
@@ -77,7 +83,6 @@
     min-height: 10vh;
     display:flex;
     flex-direction: row; 
-    /* position: relative; */
 }
 .individualRating{
     flex:0;
