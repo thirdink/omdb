@@ -63,6 +63,10 @@
   .yearTitle{
     font-size:.75em;
   }
+  .year{
+    margin-top: -10px;
+    margin-bottom: 8px;
+  }
   .typeTitle{
     align-self: baseline;
     padding-bottom: 1vh;

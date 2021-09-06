@@ -63,7 +63,7 @@ function Header() {
                     </div> 
                     <div className="rangeFilter" >
                         <div className="yearTitle">
-                            <p>Year</p>
+                            <p className="year">Year</p>
                         </div>
                     <MultiRangeSlider
                         min={1950}
