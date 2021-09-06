@@ -23,7 +23,7 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## documentation 
+## Documentation 
 
 first I took the mockup image the divided it by components. \
 Then I build 3 different components (Header,Result,ResultList). \
