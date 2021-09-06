@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React from 'react';
 import { useSelector,useDispatch} from 'react-redux';
-import * as actions from '../actions'
+import * as actions from '../actions';
 import InfiniteScroll from "react-infinite-scroll-component";
 import './ResultsList.css';
 import {isEmptyObject} from '../utils/isEmpty';
@@ -47,20 +47,15 @@ function ResultsList() {
     const dispatch=useDispatch();
     // render empty state
     const emptyState =   (
-    <p className="nothing">search for something ...</p>
+    <p className="nothing">search for a movie or tv series ...</p>
     )
-    
-   
-    const listOfMovies = listResults.Search===undefined?null:listResults.Search.length===0?emptyState:listResults.Search.map((movies,i)=>{
+    const listOfMovies = isEmptyObject(listResults)===true?emptyState:listResults.Search.map((movies,i)=>{
         return <ListItem key={i} data={movies} searchTerms={searchTerms} />
     })
     
     const infiniteScroll = () =>{
-        console.log('infinite scroll triggered');
-        console.log('pageCount ->',pageCount);
         dispatch(actions.infinite_scroll(searchTerms,pageCount));
         dispatch(actions.increment_page_count(pageCount));
-
     }
     return (
         <div className="sideList">
@@ -75,7 +70,7 @@ function ResultsList() {
                     scrollableTarget="left"
                     >
                         {listOfMovies}
-                    </InfiniteScroll>:null
+                    </InfiniteScroll>:emptyState
             }
             
         </div>

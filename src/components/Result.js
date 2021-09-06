@@ -5,7 +5,7 @@ import './Result.css';
 import { FcBookmark }  from 'react-icons/fc';
 import { FiBookmark } from 'react-icons/fi';
 import { IconContext } from "react-icons";
-import {isEmptyObject} from '../utils/isEmpty'
+import {isEmptyObject} from '../utils/isEmpty';
 
 function Result() {
     const dispatch = useDispatch();
@@ -17,6 +17,7 @@ function Result() {
 
         let booleanForWatchList=false;
 
+        // eslint-disable-next-line array-callback-return
         watchList.map((item)=>{
             if(item.imdbID===movie.imdbID){
                 booleanForWatchList=true;
@@ -31,7 +32,6 @@ function Result() {
         if(!checkIfMovieIsInWatchList(movie,watchList)){
             dispatch(actions.add_to_wishlist(movie));
         }else{
-            console.log(movie);
             dispatch(actions.delete_from__wishlist(movie));
         }
     }

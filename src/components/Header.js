@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import * as actions from '../actions';
 import { useDispatch} from 'react-redux';
 import {BsSearch}from 'react-icons/bs';
@@ -12,6 +12,8 @@ function Header() {
     const [typeSelect,setTypeSelect] = useState('');
     const [minYear,setMinYear] = useState('');
     const [maxYear,setMaxYear] = useState('');
+    
+    // eslint-disable-next-line no-unused-vars
     const [pageCount,setPageCount] = useState(1);
     const dispatch = useDispatch();
     const apiKey = process.env.REACT_APP_API_KEY;

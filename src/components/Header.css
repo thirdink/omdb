@@ -34,7 +34,7 @@
   .inputTypeText{
     padding: 12px 10px;
     margin: 12px;
-    width: 23em;
+    width: 40vw;
     background-color: #777777;
     border-color: transparent;
     border: none;
@@ -119,10 +119,6 @@ input[type='radio']:checked:after {
     height: 90vh;
     overflow-y: auto;
   }
-  .left{
-    height: 90vh;
-    overflow-y: auto;
-  }
   .right{
     flex:1;
     height: 100vh;
@@ -131,7 +127,6 @@ input[type='radio']:checked:after {
   
   
   .contentContainer{
-  
     font-size: 1.2rem;
   }
   .left{
