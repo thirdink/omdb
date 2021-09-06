@@ -81,6 +81,10 @@
     display: flex;
     flex-direction: row;
   }
+  #left{
+    height: 90vh;
+    overflow-y: auto;
+  }
   .left{
     height: 90vh;
     overflow-y: auto;

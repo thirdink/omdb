@@ -11,9 +11,9 @@ function App() {
     <div className="App">
       <Header/>
       <div className="contentContainer"> 
-      <div className="left">
-        <ResultsList/>
-      </div>
+        <div  className="left" id="left">
+          <ResultsList/>
+        </div>
         <div className="right">
           <Result />
         </div>
