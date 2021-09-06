@@ -12,11 +12,12 @@ const wishListReducer = (state = initialState,action)=>{
                 wishLists: [...state.wishLists,action.payload]
             }
         case DELETE_FROM_WISH_LIST:
+            let wishListArr =  [
+                ...state.wishLists.filter(wishList=>wishList.imdbID!==action.payload.imdbID)
+            ]
             return {
                 ...state,
-                wishLists: [
-                    ...state.wishLists.filter(wishList=>wishList.imdbID!==action.payload.imdbID)
-                ]
+                wishLists: wishListArr
             }
         default:
             return state;

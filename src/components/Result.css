@@ -51,7 +51,11 @@
 .rated{
     flex:0;
     align-self: center;
-    padding: 1vw;
+    padding: 10px 17px;
+    border: 1px solid #5a5a5a;
+    border-radius: 10px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 .year{
     flex:1;
@@ -62,6 +66,7 @@
     flex:2;
     align-self: center;
     padding: 1vw;
+    white-space: nowrap;
 }
 .time{
     flex:3;
