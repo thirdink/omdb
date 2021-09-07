@@ -30,8 +30,8 @@ I am using redux as a state management tool.\
 Tried material UI but imo its a bit too much for this kinda of application. \
 Tried the new redux toolkits but was a bit confusing so was taking abit of my time also has a lot of abstractions so I used the old react-redux with thunk. \
 
-Created two global states on reducx to store the search api and the individual title api \
-and used reudx hooks to attach it to the components to run async functions \
+Created three global states on redux to store the search api and the individual title api and the watchlist \
+and used redux hooks to attach it to the components to run async functions \
 also created the CLEAR_DATA action type to reset the redux store to remove data.\
 
 Added  multi range slider from [Building a Multi-Range Slider in React from scratch](https://dev.to/sandra_lewis/building-a-multi-range-slider-in-react-from-scratch-4dl1) and input type radio to the header component so as to call the search api with those filters.
