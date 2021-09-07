@@ -10,6 +10,14 @@ In the project directory, you can run:
 
 Installs the app on yarn package manager
 
+### `Important`
+
+add a file on the root folder and name it .env \
+instanciate a variable called REACT_APP_API_KEY and assign the API key from OMDB API website
+
+REACT_APP_API_KEY = API_KEY_SECRET_HERE
+
+and then yarn start 
 ### `yarn start`
 
 Runs the app in the development mode.\
