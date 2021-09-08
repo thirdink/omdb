@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector,useDispatch} from 'react-redux';
-import {add_to_wishlist,delete_from__wishlist} from '../actions';
+import {add_to_watchlist,delete_from__watchlist} from '../actions';
 import './Result.css';
 import { FcBookmark }  from 'react-icons/fc';
 import { FiBookmark } from 'react-icons/fi';
 import { IconContext } from "react-icons";
-import {isEmptyObject} from '../utils/isEmpty';
+import { isEmptyObject } from '../utils/isEmpty';
 
 function Result() {
     const dispatch = useDispatch();
     const selectedMovie=useSelector((state)=>state.searchByIDReducer.searchByID);
-    const watchList = useSelector((state)=>state.wishListReducer.wishLists);
+    const watchList = useSelector((state)=>state.wishListReducer.watchLists);
 
     // checks if the movie is already in the watch list
     const checkIfMovieIsInWatchList=(movie,watchList)=>{
@@ -28,9 +28,9 @@ function Result() {
     // triggers when wathclist button is pressed
     const handleWatchList=(movie)=>{   
         if(!checkIfMovieIsInWatchList(movie,watchList)){
-            dispatch(add_to_wishlist(movie));
+            dispatch(add_to_watchlist(movie));
         }else{
-            dispatch(delete_from__wishlist(movie));
+            dispatch(delete_from__watchlist(movie));
         }
     }
 
@@ -64,7 +64,7 @@ function Result() {
         }
     })
     // renders the watchlist button component
-    const wishListComponent=(
+    const watchListComponent=(
         <button className="wishListIconOuter" onClick={()=>handleWatchList(selectedMovie)}>
             <IconContext.Provider value={{size:"2em",className:"wishListIcon"}}>
                 {checkIfMovieIsInWatchList(selectedMovie,watchList)?<FcBookmark/>:<FiBookmark/>}                
@@ -87,7 +87,7 @@ function Result() {
                 <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="imagePoster"/>
                 <div className="titleContainer">
                     <div className="watchList">
-                    {wishListComponent}
+                    {watchListComponent}
                     </div>
                     <div className="title">{selectedMovie.Title}</div>
                     <div className="categoryContainer">

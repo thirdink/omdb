@@ -1,24 +1,24 @@
-import { ADD_TO_WISHLIST, DELETE_FROM_WISH_LIST } from '../actions/types'
+import { ADD_TO_WATCHLIST, DELETE_FROM_WATCHLIST } from '../actions/types'
 
 const initialState = {
-    wishLists:[]
+    watchLists:[]
 }
 
 const wishListReducer = (state = initialState,action)=>{
     switch(action.type){
-        case ADD_TO_WISHLIST:
-            let addToWishList = [...state.wishLists,action.payload]
+        case ADD_TO_WATCHLIST:
+            let addToWatchList = [...state.watchLists,action.payload]
             return{
                 ...state,
-                wishLists: addToWishList
+                watchLists: addToWatchList
             }
-        case DELETE_FROM_WISH_LIST:
-            let wishListArrToDelete =  [
-                ...state.wishLists.filter(wishList=>wishList.imdbID!==action.payload.imdbID)
+        case DELETE_FROM_WATCHLIST:
+            let watchListArrToDelete =  [
+                ...state.watchLists.filter(watchLists=>watchLists.imdbID!==action.payload.imdbID)
             ]
             return {
                 ...state,
-                wishLists: wishListArrToDelete
+                watchLists: watchListArrToDelete
             }
         default:
             return state;
