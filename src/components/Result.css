@@ -57,7 +57,7 @@
     font-weight: 600;
     white-space: nowrap;
 }
-.year{
+.ResultYear{
     flex:1;
     align-self: center;
     padding: 1vw;
@@ -72,6 +72,7 @@
     flex:3;
     align-self: center;
     padding: 1vw;
+    white-space: nowrap;
 }
 .actors{
     flex:3;

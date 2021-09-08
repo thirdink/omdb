@@ -92,7 +92,7 @@ function Result() {
                     <div className="title">{selectedMovie.Title}</div>
                     <div className="categoryContainer">
                         <div className="rated">{selectedMovie.Rated}</div> 
-                        <div className="year">{selectedMovie.Year}</div>
+                        <div className="ResultYear">{selectedMovie.Year}</div>
                         <div className="genre">{selectedMovie.Genre}</div>
                         <div className="time">{selectedMovie.Runtime}</div>
                     </div>
