@@ -10,31 +10,35 @@ import './ResultsList.css';
 import {isEmptyObject} from '../utils/isEmpty';
 
 
-
-
 function ListItem(props) {
     const apiKey = process.env.REACT_APP_API_KEY;
     const dispatch=useDispatch();
 
     return (
+        
+            
             <li 
                 className="liSideList" 
-                onClick={()=>{dispatch(searchByID(apiKey,props.data.imdbID))}}
                 >
-                    <img 
-                        src={props.data.Poster} 
-                        alt={props.data.Title} 
-                        className="sideListImg"
-                        />
-                    <div className="sideListTitle">
-                        <div className="sideListTitleText">   
-                            {props.data.Title}
+                    <button className="buttonSideList" 
+                    onClick={()=>{dispatch(searchByID(apiKey,props.data.imdbID))}}
+                    >
+                        <img 
+                            src={props.data.Poster} 
+                            alt={props.data.Title} 
+                            className="sideListImg"
+                            />
+                        <div className="sideListTitle">
+                            <div className="sideListTitleText">   
+                                {props.data.Title}
+                            </div>
+                            <div className="sideListTitleYear">
+                                {props.data.Year}
+                            </div>
                         </div>
-                        <div className="sideListTitleYear">
-                            {props.data.Year}
-                        </div>
-                    </div>
+                    </button>
             </li>
+        
             );
 }
 
@@ -75,7 +79,10 @@ function ResultsList() {
                     loader={<h4>Loading...</h4>}
                     scrollableTarget="left"
                     >
+                        <ul>
+
                         {listOfMovies}
+                        </ul>
                     </InfiniteScroll>:emptyState
             }
             
@@ -85,4 +92,6 @@ function ResultsList() {
 }
 
 export default ResultsList
+
+
 
